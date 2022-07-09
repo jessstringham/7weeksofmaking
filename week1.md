@@ -1,4 +1,6 @@
-# Day 1
+# Week 1 (2022-07-07)
+
+## Day 1 (2022-07-07)
 
 Trying the cellular automata on magnetic spheres. 
 
@@ -23,7 +25,7 @@ one rotational axis is rotating the sphere not-against-a-color-hemisphere.
 For noise like "Simplex 3D (GPU)", using `absTime.seconds * [some fraction]` in a noise's Transform > Translate value 
 makes a nice smooth change. Will have to try out a bunch of noises.
 
-## Day 2
+## Day 2 (2022-07-08)
 
 Conveniently, this person gave [a tutorial](https://www.youtube.com/watch?v=VBzIPLh-ECg&t=1693s)
 on basically exactly what I wanted! So I ventured into GLSL shaders. This reference is useful too: [Write a GLSL Top](https://docs.derivative.ca/Write_a_GLSL_TOP).
