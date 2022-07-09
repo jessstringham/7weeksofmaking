@@ -32,7 +32,7 @@ But, I ran into the problem some folks in the audience
 also did: it was all black. But back at it for Day 2!
 
 Trying to debug the GLSL was weird, since I don't know how to use print statements. But instead:
- * Use a `TOP to` CHOP, and then a `CHOP to` DAT, to print out a table of data. 
+ * Use a `TOP to` CHOP, and then a `CHOP to` DAT, to print out a table of data. I think this only does 1 line per row though.
  * Then go back to the script and start setting `fragColor` to what value.. you're trying to print.
  * Figure out a row in the table that corresponds to some troubleshome spot, and see what values are being produced.
  * Do gymnastics in your head to figure out what that means.
@@ -48,9 +48,5 @@ Adding things here as they come up.
 
  * documentation: make a cheat sheet for the feedback loop and render network. I need to learn more tricks there!
 
-
-
-
-
-
-Started trying GLSL shader following 
+ * i really want to try applying lookups to random images! [like in this one](https://www.youtube.com/watch?v=mAp_wxuuw_U&t=698s)
+ * now that i've done glsl, what weird affects can i do? i had to do blurring in feedback..
