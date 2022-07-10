@@ -39,6 +39,24 @@ Trying to debug the GLSL was weird, since I don't know how to use print statemen
  * Figure out a row in the table that corresponds to some troubleshome spot, and see what values are being produced.
  * Do gymnastics in your head to figure out what that means.
 
+## Day 3 (2022-07-09)
+
+shh, this was actually at 2am on Saturday. Had a busy day!
+
+I wanted the spheres to rotate visably. I also wanted them to only ever rotate in one direction, so it didn't matter if it was going black to white or white to black, it'll be rotating down.
+
+So the trick was: instead of setting each pixel to 0 or 1, I had "around 0 or 1" be black, and "around 0.5" mean white. It then checks if the pixel was around the color it was supposed to be, and snaps to 0 or 0.5 if it is. If not, increment the pixel value by the fraction I wanted them to rotate. If the number was above 1.0 I would subtract 1.0. 
+The next row would wait until the pixel above was the right color before triggering any change. Phew.
+
+I kinda hope there are edge cases where the pixels get stuck, or some columns change before others. Maybe I can try introducing them!
+
+Also, my vision was for them to always rotate down, which is also the direction the image updates. But! When I did this, the effect kinda just looked like I was dragging a rectangular mask straight down! You couldn't really tell how the spheres were actually rotating. So I played with which axis to rotate, just so it was clear the spheres were actually rotating.
+
+I think that wraps up the main goal of this first little project. 
+In the next few weeks, I might try to display other things using the same setup (text?), or apply filters. But mostly I'll let it rest.
+
+Also a thought, I've been numbering them a day later than other folks doing it. One of these days I'll post two and realign with others I think.
+
 
 # Ideas for future practice days
 
