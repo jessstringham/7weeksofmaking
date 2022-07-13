@@ -1,5 +1,19 @@
 # Week 1 (2022-07-07)
 
+Some favorite OPs that I usually forget
+
+ - TOP
+   - **fit**: resize image
+   - **reorder**: assign input channels to different image channels (like RGBA)
+   - **lookup**: apply a colorscheme! like a ramp or noise pixels.
+   - **GLSL**: oh you know it's gonna be wild
+
+ - CHOP
+   - **pattern**: gives you a little pattern, like sine and stuff
+   - **merge** and **rename** can be used to make the constant of your dreams.
+   - 
+
+
 ## Day 1 (2022-07-07)
 
 Trying the cellular automata on magnetic spheres. 
@@ -57,6 +71,24 @@ In the next few weeks, I might try to display other things using the same setup 
 
 Also a thought, I've been numbering them a day later than other folks doing it. One of these days I'll post two and realign with others I think.
 
+## Day 4 (2022-07-10)
+
+Today I just tried a bunch of video effects. It was my first time doing things like that to regular videos.
+Most looked kinda weird and didn't quite look the way I wanted them to.
+
+I tried out turning an image black-and-white, and then applying a lookup to make some weirder color combinations.
+
+I also tried using an image to adjust some line positions. That was kind of cool. But when I tried tubes, it was way too heavy for my computer, and lines were a little too thin to even notice.
+
+Today I also figured out how to split my screen and show a preview in a Panel (display what's in an `out` operator). Because as cool as it looks to have the preview right behind your screen, it was making it hard to see my operators!
+
+
+## Day 5 (2022-07-11)
+
+I had one more idea for the moon shapes that I wanted to do before wrapping up some project post about them.
+
+
+
 
 # Ideas for future practice days
 
@@ -69,4 +101,8 @@ Adding things here as they come up.
  * documentation: make a cheat sheet for the feedback loop and render network. I need to learn more tricks there!
 
  * i really want to try applying lookups to random images! [like in this one](https://www.youtube.com/watch?v=mAp_wxuuw_U&t=698s)
- * now that i've done glsl, what weird affects can i do? i had to do blurring in feedback..
+ * now that i've done glsl, what weird affects can i do? i had to do motion blur in feedback..
+
+
+ * how can i create a color scheme? I know how to make a 1x5 random noise, but I don't know how to 
+ * how do folks manage constants that are used in a ton of places? there are so many little lines!
