@@ -1,4 +1,4 @@
-# Week 1 (2022-07-07 to 2022-07-11)
+# Part 1 (2022-07-07 to 2022-07-11)
 
 Some favorite OPs that I usually forget
 
@@ -88,3 +88,18 @@ Today I also figured out how to split my screen and show a preview in a Panel (d
 I had one more idea for the moon shapes that I wanted to do before wrapping up some project post about them.
 
 I tried adding text to the rotation! I ended up doing way too much math in nodes, though now I think I can just add it to constants. I also was trying to use feedback to do something when I probably could have just adjusted the transparency.
+
+
+
+# Part 2 (2022-07-12 to 2022-07-13)
+
+For a few days, I was hosting, so I didn't want to spend too long heads-down on a geometry problem. So I stuck a lot more with TOPs, that would give visual feedback.
+
+## Day 6 (2022-07-12)
+
+Today is the first day where I don't have much time! So let's do something quick.
+
+This one I ended up doing only in TOPs, of a circle with some noisy horizontal lines cut out of it. I'm also trying to add some gradients and noise.
+
+## Day 7 (2022-07-13)
+
