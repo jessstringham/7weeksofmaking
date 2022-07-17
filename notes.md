@@ -1,18 +1,20 @@
 # Part 1 (2022-07-07 to 2022-07-11)
 
-Some favorite OPs that I usually forget
+For the first few days, I was still forming what I wanted out of the project. 
 
- - TOP
-   - **fit**: resize image
-   - **reorder**: assign input channels to different image channels (like RGBA)
-   - **lookup**: apply a colorscheme! like a ramp or noise pixels.
-   - **GLSL**: oh you know it's gonna be wild
+When starting with a new tool/programming language/etc, I don't know what's natural. My favorite way is to give myself some idea I think I might be able to create in the program, and then figure out how to create something like it.
 
- - CHOP
-   - **pattern**: gives you a little pattern, like sine and stuff
-   - **merge** and **rename** can be used to make the constant of your dreams.
-   - 
+I also needed to sort out my workflow for creating, exporting, and uploading: 
+ * Set the resolution to 1024x1024.
+ * Everytime I make something somewhat cool, I zoom out to the project area, and copy and paste the project before tweaking it more.
+ * When I have something I might publish,:
+   * I uncheck the Realtime thing
+   * record a video in a "Movie File Out" TOP for a few seconds.
+   * Rename the file
+   * airdrop it to my phone and finish cutting the timeline (funny that's easier on my phone!). 
+   * And post as a story to instagram.
 
+I'm planning to make posts on instagram with a bunch of days from similar themes. And I'll put them on my blog too once I get that running again!
 
 ## Day 1 (2022-07-07)
 
@@ -89,11 +91,9 @@ I had one more idea for the moon shapes that I wanted to do before wrapping up s
 
 I tried adding text to the rotation! I ended up doing way too much math in nodes, though now I think I can just add it to constants. I also was trying to use feedback to do something when I probably could have just adjusted the transparency.
 
-
-
 # Part 2 (2022-07-12 to 2022-07-13)
 
-For a few days, I was hosting, so I didn't want to spend too long heads-down on a geometry problem. So I stuck a lot more with TOPs, that would give visual feedback.
+For a few days, I was hosting, so I didn't want to spend too long heads-down on a geometry problem or a GLSL shader. So I stuck a lot more with TOPs, which give visual feedback. I think these will be useful tools later on too!
 
 ## Day 6 (2022-07-12)
 
@@ -103,3 +103,30 @@ This one I ended up doing only in TOPs, of a circle with some noisy horizontal l
 
 ## Day 7 (2022-07-13)
 
+For this day, I wanted to experiment with motion to prepare for a project I want to do in the next few weeks.
+
+One idea I had was that I could generate a strip of new material, offset the image by the same amount, and composite those together. Then use feedback loops to keep looping repeating. To start with I used random noise.
+
+Honestly, the first results made me dizzy, so I tried a few things:
+ * I generate a narrower strip than I intended and then using the Fit TOP to stretch the noise horizontally, and applying a Blur TOP to the result.
+ * I got some advice to try some different colors for the noise (using my current favorite trick of a Lookup TOP): high-contrast colors gave a different effect than colors that were similar!
+
+Eh, but that's not a cool visual, so I added a polygon, and applied a different level of blur to the polygon vs the background.
+
+## Day 8 (2022-07-14)
+
+We went to the Guggenheim, so I tried to recreate some effects from Kandinsky. I liked taking a Ramp TOP x Noise TOP (random), of the same shape, but slightly offset. There was another one with circles.
+
+## Day 9 (2022-07-15)
+
+I did some simple Instanced Geometry in this one: I created a rotating line (like a clock face) and marked the line with little circles. Then I used feedback to create a trail, and a threshold to limit the length of the trail.
+
+For some reason, there's this weird line that follows the circles around. I'll get to the bottom of it one day.
+
+It fees like it was inevitable that I'd start using the Displace TOP (whenever you create a new project, there's a Diplace TOP there). In this case, I just applied a little noise, and then started reading up on what it was doing.
+
+## Day 10 (2022-07-16)
+
+I did a few more experiments with the Displace TOP that I didn't post, but it was pretty fun. [This post](https://forum.derivative.ca/t/explaining-the-displace-top/152892) on the Forum was super super useful, and I started experimenting with my own simple displacement inputs. It's really wicked to think about using image data to instruct how to change another image, and I wonder if I can do some fun tricks there. I also love the parallels with using images as input into Instanced Geometry.
+
+In the end, my post was another "Noise as displace input". I took a ramp with a short period, which create lots of repeating gradients, and just used some noise to displace it. I thought the effect was cool without too much thinking.
