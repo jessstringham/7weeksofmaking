@@ -91,9 +91,9 @@ I had one more idea for the moon shapes that I wanted to do before wrapping up s
 
 I tried adding text to the rotation! I ended up doing way too much math in nodes, though now I think I can just add it to constants. I also was trying to use feedback to do something when I probably could have just adjusted the transparency.
 
-# Part 2 (2022-07-12 to 2022-07-13)
+# Part 2 (2022-07-12 to 2022-07-16)
 
-For a few days, I was hosting, so I didn't want to spend too long heads-down on a geometry problem or a GLSL shader. So I stuck a lot more with TOPs, which give visual feedback. I think these will be useful tools later on too!
+I was hosting for a few days, so I didn't want to spend too long heads-down on a geometry problem or a GLSL shader or MIDI controllers. So I stuck a lot more with TOPs, which give visual feedback. I think these will be useful tricks I could do later on too!
 
 ## Day 6 (2022-07-12)
 
@@ -107,23 +107,27 @@ For this day, I wanted to experiment with motion to prepare for a project I want
 
 One idea I had was that I could generate a strip of new material, offset the image by the same amount, and composite those together. Then use feedback loops to keep looping repeating. To start with I used random noise.
 
-Honestly, the first results made me dizzy, so I tried a few things:
+Honestly, the first results made us dizzy, so I tried a few things:
  * I generate a narrower strip than I intended and then using the Fit TOP to stretch the noise horizontally, and applying a Blur TOP to the result.
  * I got some advice to try some different colors for the noise (using my current favorite trick of a Lookup TOP): high-contrast colors gave a different effect than colors that were similar!
 
 Eh, but that's not a cool visual, so I added a polygon, and applied a different level of blur to the polygon vs the background.
 
+We also created this wicked effect where it looked like a cylinder of thread rolling down a carpet. That was unexpected and pretty cool.
+
 ## Day 8 (2022-07-14)
 
-We went to the Guggenheim, so I tried to recreate some effects from Kandinsky. I liked taking a Ramp TOP x Noise TOP (random), of the same shape, but slightly offset. There was another one with circles.
+We went to the Guggenheim, so I tried to recreate some little effects from Kandinsky. I liked taking a Ramp TOP x Noise TOP (random), of the same shape, but slightly offset.
 
 ## Day 9 (2022-07-15)
 
-I did some simple Instanced Geometry in this one: I created a rotating line (like a clock face) and marked the line with little circles. Then I used feedback to create a trail, and a threshold to limit the length of the trail.
+I did some simple Instanced Geometry in this one: I created a rotating line (like a clock face) and marked the line with little circles. Then I used feedback to create a trail, and a threshold to limit the length of the trail. I was somewhat thinking of planets rotating.
 
-For some reason, there's this weird line that follows the circles around. I'll get to the bottom of it one day.
+For some reason, there's this weird line that follows the circles around from the feedback. I'll get to the bottom of it one day.
 
-It fees like it was inevitable that I'd start using the Displace TOP (whenever you create a new project, there's a Diplace TOP there). In this case, I just applied a little noise, and then started reading up on what it was doing.
+And then the Displace TOP! It feels like it was inevitable that I'd start using the Displace TOP (whenever you create a new project, there's a Diplace TOP there). In this case, I just applied a little noise, and then started reading up on what it was doing.
+
+I liked the result: it's like a tree trunk sonar.
 
 ## Day 10 (2022-07-16)
 
