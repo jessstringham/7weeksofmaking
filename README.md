@@ -3,7 +3,7 @@
 Repo for miscellaneous notes and code snippets from #7weeksofmaking
 
  - [Notes](notes.md): Notes about my daily projects
- - [Links](links.md): Links to useful resources
+ - [Resources](resources.md): Links to useful resources
  
  
  Might also be interesting:
