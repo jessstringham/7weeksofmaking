@@ -134,3 +134,21 @@ I liked the result: it's like a tree trunk sonar.
 I did a few more experiments with the Displace TOP that I didn't post, but it was pretty fun. [This post](https://forum.derivative.ca/t/explaining-the-displace-top/152892) on the Forum was super super useful, and I started experimenting with my own simple displacement inputs. It's really wicked to think about using image data to instruct how to change another image, and I wonder if I can do some fun tricks there. I also love the parallels with using images as input into Instanced Geometry.
 
 In the end, my post was another "Noise as displace input". I took a ramp with a short period, which create lots of repeating gradients, and just used some noise to displace it. I thought the effect was cool without too much thinking.
+
+
+# Part 3
+
+Shaders and such
+
+## Day 11 (2022-07-17)
+
+Started with an idea of making something generative with shaders, but ran into problems pretty quick.
+
+Instead I really liked the [trick used in this tutorial](https://www.youtube.com/watch?v=Ms6_vBn0XQQ) to draw squares using Limit TOP's quantize. I didn't end up using the lines in my final result though: I just took a threshold on random noise.
+
+I was thinking I could challenge myself and try mapping it to polar coordinates using the Displace TOP (heh), but [this trick](https://www.google.com/search?client=safari&rls=en&q=touchdesigner+polar+coordinates&ie=UTF-8&oe=UTF-8) of creating a tube with one opening's radius=0 seemed to work pretty well. I don't really like the blur near the edge. I tried out Texture SOP on the tube to make some fun effects, but it didn't improve the blur. I'm guessing it's because the tube's radius is (in its head) more than 1000 pixels I'm providing. I might be able to repeat the pattern. 
+
+I fiddled with a few variations. 
+
+I do like the effect of Blur TOP + (Displace TOP + noise) to distort + Threshold to sharpen again to make wobbly lines.
+
