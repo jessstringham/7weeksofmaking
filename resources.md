@@ -6,7 +6,6 @@
 ## Shaders
 
  * [The Book of Shaders](https://thebookofshaders.com/00/): Really nice introduction to shaders
-
  * [GPU Gems](https://developer.nvidia.com/gpugems/gpugems/contributors): A lot more in-depth about making graphics on GPUs.
 
 
@@ -20,3 +19,12 @@
 
 * [Chromaticity](https://en.wikipedia.org/wiki/Chromaticity) how we perceive color!
 * [Brewer](https://en.wikipedia.org/wiki/Cynthia_Brewer) where some color maps come from
+* Interaction of Color, Josef Albers. Johannes Itten.
+
+
+
+# Tools
+
+ - **Ableton**: paid app, very pro
+ - **PolyCam**: Scan things in 3D.
+
