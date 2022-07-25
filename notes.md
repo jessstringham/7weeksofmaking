@@ -152,3 +152,97 @@ I fiddled with a few variations.
 
 I do like the effect of Blur TOP + (Displace TOP + noise) to distort + Threshold to sharpen again to make wobbly lines.
 
+## Day 12 (2022-07-18)
+
+I've been wanting to recreate a really cool light I saw at a bar. After learning about the Displace TOP, I've been wondering if that's all I needed. And I think it was!
+
+I used a ramp with a period so it repeated a bunch of times, and a vertical ramp that repeated fewer times. I used the Reorder TOP to select them into Red and Blue for the Displace TOP. And amazingly, it looked about right!!
+
+I couldn't quite get the colors to match the feeling of the original lamp, and it was very stormy in nyc, so I liked the version I made with slow-moving distorted rings. The first few seconds look like storm clouds. 
+
+This is one of my favorites!
+
+## Day 13 (2022-07-19)
+
+I went back to the generative code that I use for cellular automata, but now tried adding probability to it. If I chose the right values, it would actually generate something!
+
+After I got that working, I thought it wasn't quite interesting enough on its own.
+
+I stacked three (completely unique) ones on top of each other, made one of them bigger, rotated all of them at an angle, and had two blue ones overlap and make a brighter blue.
+
+## Day 14 (2022-07-20)
+
+Excited to sit down and try for probabilistically generative images, but it was very hard to make something interesting. I was out of time, but finally had an idea for just drawing a bunch of straight lines to try to make squares of different sizes. It.. was okay. I thought to try to use it as a texture on a rotating box, which was still.. okay. Before posting I noticed the patterns on the sides of the box were very obviously not wrapping around the box, even just the three sides I was showing, bah. So I added in a wireframe of the box to make the edges not as obvious. I'll need to revisit to learn how to apply textures nicer to boxes. Also it could be cool to figure out how to make the textures actually wrap correctly.
+
+## Day 15 (2022-07-21)
+
+I was late to something, so I used some tests with the Ramp TOP I had done before I knew about 7weeksofmaking. I had been really surprised how cool it looked just adding a circular + vertical ramp. Since that was something I had already done, I tweaked it by fixing the format size and adding some subtle 
+noise so it sparkles. #quick
+
+## Day 16 (2022-07-22)
+
+After setting parameters for a few generative probabilistic shaders on Day 13 and Day 14, the machine learning engineer in
+me started coming up with ways to learn parameters to make interesting patterns (at least not "mostly nothing")
+
+The first pass I did borrowed some ideas from NLP and deep learning (some of which were very likely borrowed from computer vision and computer graphics. I'm starting to love the GPU even more.) I used 2 colors (black and white) and looked at the neighboring 3 by 2 pixels in this example, but those parameters can change.
+
+ * I run through a (single!) reference image. I love when I can work with small data.
+ * Limit ("quantize") the colors a lot. The only one I have working is black and white for reasons I'll get back to below!
+ * For each pixel of the image (that have enough neighbors), look at the 3 by 2 pixels above that pixel. In a counter dictionary, look at what those 3 by 2 pixels are, and add to the tally what color the current pixel is. 
+
+Now we've taught the model what it needs to know! For each of the 64 combinations of pixel neighbors, I can extract the probability the pixel should be black or white.
+
+To generate an image:
+ * Draw enough pixels to get it started. In this case, I need 2 rows of pixels. For now, I either populate it with the first two pixels of the reference image or random noise. It's okay because there's usually a lot of randomness in this.
+ * Let the shader look at the neighboring 3 by 2 pixels, and then pull up the probability. Then look at a second texture of random noise (static is fine), check if the value of that pixel is less than the probability, and then write black or white.
+
+
+If you know about Markov text generation, this is the same idea! Though it's the same idea as a ton of things: generating an image line-by-line is similar to how RNNs predict sequences. Of course, it's also not far from cellular automata
+
+
+I love the idea of very small data, as well as not needing to exactly be able to recreate the reference image.
+
+I also ended up using [my stride tricks](https://jessicastringham.net/2017/12/31/stride-tricks/) blog post from a few years ago!
+
+
+### The unseen, and larger spaces
+
+So! The first version I got working with a 3 by 2 kernel and 2 colors. That leads to a space of $2^6=64$ possible pixels that I need to learn. 
+In practice, these haven't been too hard for me to fill nearly all of those combinations even with small reference images. As a sane default, I can fall back to the color distribution of the entire reference image. 
+
+So that works fine with the 64 case. But! I found that it results in chaos for larger spaces, like when I increased it to 4 colors (an example of this is worked into my actual submission for Day 16). I think this is because once one kernel is outside of the learned space, it's more likely to keep running into combinations the model has never seen before.
+
+I have a feeling I'll be back to this problem in a bit, because I really do want to see it generate patterns that are multiple shades or use larger kernels. I'll probably throw in "just treat an unseen kernel like a nearby neighbor," or train a supervised learning model to fill in the blanks (and at that point of training a model, it is just a function so I could try out dropping that into the shader?)
+
+The next part with larger spaces is loading the data! But hell, GPUs have to deal with image data, and my limitation of images of 1280x1280rgba still gives me 6.5M floating point numbers, which should be more than enough for my plans.
+
+
+### Submission
+
+Phew, this took a lot of coding time outside of TouchDesigner, but it's a framework I see myself experimenting with for a while longer. It wasn't quite working by the end of Day 16, so I submitted a WIP screen shot from Jupyter notebooks, adding some more fun noise using TouchDesigner. So I think it counts towards the "try to quickly make visually interesting things" tag. Also I love the idea of my work matplotlib graphs having TouchDesigner distortion on them.
+
+## Day 17 (2022-07-23)
+
+And I finally tracked down the bug where I wasn't looking around the grid correctly in GLSL, and it worked!
+
+It.. looks mostly like random stuff with slightly more structure than usual. 
+
+One thing I couldn't get working is macro-structures in the reference image. I have some ideas (I know convolutional neural networks have some tricks for this), but even easier to get a cool effect was to run the same probabilities on a lower resolution image.
+
+*  For colors, It was a little hard not to make this just look like camouflage patterns. I colored one a magenta, another green (so they overlapped and made yellow), and set them on top of a dark blue background.
+* As a final thing, I added a random chance (random noise that changes every frame) that the cell isn't generated. The kernel already requires that the above adjacent 3 cells are filled in. This made it generate a bit more slowly and with a wiggly line, which I thought looked more interesting than a straight one.
+* I also cranked up the frame rate so the result is sped up a bit. Someday I'll try to limit myself to actual realtime effects, but these images take a few seconds to generate.
+
+In TouchDesigner, I also learned how to use the `TOP To CHOP` a lot better: by default it looks like it chooses something like a row halfway down the image, but you can chnage it to select a range of rows and columns pixel values from a reference image. This was so so so useful to debug the GLSL, when I needed to look at the 2 rows being used to generate the 3rd row at specific parts of the images where things were going wrong.
+(I thought I could only select specific rows, and definitely started by creating a bunch of these and merging them.)
+
+
+## Day 18 (2022-07-24)
+
+I tried a few more reference images, but the learner seems super finicky and most of the generated images look pretty similar to the cream cheese-based model (did I mention my first reference image was a picture of cream cheese?) I think I might be able to get better effects with some fiddling with image resolution and brightness. But! Even easier, I can generate a pixel pattern like straight lines or diagonal lines or a grid. The resulting model draws very cool patterns. These are my favorite things from 7weeksofmaking so far!
+
+
+## Day 19 (2022-07-25)
+
+Spoilers, but if instead of using completely random noise used to decide which route to take, I get very cool effects and I'm so happy.
+
