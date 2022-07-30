@@ -7,7 +7,16 @@
 
  * [The Book of Shaders](https://thebookofshaders.com/00/): Really nice introduction to shaders
  * [GPU Gems](https://developer.nvidia.com/gpugems/gpugems/contributors): A lot more in-depth about making graphics on GPUs.
+ * [Char Stile's workshop](http://charstiles.com/shader/)
 
+
+Wikipedia rabbit holes
+
+
+ - [normal mapping](https://en.wikipedia.org/wiki/Normal_mapping)
+ - [reflections](https://en.wikipedia.org/wiki/Lambertian_reflectance)
+ - [specular highlights](https://en.wikipedia.org/wiki/Specular_highlight)
+ - Non photo realistic: [cel shader](https://en.wikipedia.org/wiki/Cel_shading)
 
 ## Other programming
 
