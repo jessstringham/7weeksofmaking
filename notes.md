@@ -244,5 +244,69 @@ I tried a few more reference images, but the learner seems super finicky and mos
 
 ## Day 19 (2022-07-25)
 
-Spoilers, but if instead of using completely random noise used to decide which route to take, I get very cool effects and I'm so happy.
+If instead of using completely random noise used to decide which route to take, I get very cool effects and I'm so happy.
+
+I really like the "make a super well-defined geometric thing, then throw some simple probabilistic rules at it to make it look weird and a little organic.
+
+## Day 20 (2022-07-26)
+
+I bought the MIDI Controller a few months ago before I knew anything about visuals, but because I was interested in using things that weren't keyboards as input devices. I've been saving it for when I could usually make something look cool in TouchDesigner without much work.
+
+
+This was pretty straightforward to set up. Also I was used to setting parameter domain/ranges, so that was pretty straightforward too.
+
+But honestly it was still finicky to to choreograph a sequence that I liked for the video. Since MIDI controllers are used for live visuals, I'm a little nervous that I'm not a huge fan of tweaking parameters. But I have two theories: maybe you don't necessarily need to control as much details live, _or_ maybe after some practice, a ton of dials and buttons won't feel like so many.
+
+I am planning for a bunch more fun input and output devices soon. I'm working on the groundwork on the side!
+
+## Day 21 (2022-07-27)
+
+I tried some more input images and learned probabilistic patterns, and like the one I made.
+
+I also played a bit with going back to instanced geometry based on the GLSL output, but couldn't quite make something I liked. I'll revisit it!
+
+## Day 22 (2022-07-28)
+
+The big update here was that I updated the model and shader to be able to grow in any of the four directions. I did try learning different probabilities for growing sideways (you... just transpose the image and learn the probabilities that way.) 
+
+The first image I thought really clearly showed what I was doing: the little grid gets filled in from all sides instead of top-to-bottom. Also fun thing here was the grid was made by making a tube of lines, and looking at it from the side, so ones near the edges are closer and ones near the center are further apart.
+
+I also reused the underlying image from Day 21 and really like how it looks. It's really cool that you can tell from which ways the weird slime stuff comes off the nodes which order it grew in.
+
+## Day 23 (2022-07-29)
+
+This was supposed to be a quick one during lunch. I liked the idea of it healing.
+
+I used perlin noise on a smaller grid, and when I resized it to the full image, it became softer and would end up drawing these weird rounded boundaries because of the stretching. I'd adjust the resolution of what it drew, so some looked complicated and detailed, and some wasn't. After it would draw for a while, it came up with a cool stacked pattern. I also turned on feedback so you could briefly see what was about to be drawn over.
+(That said, I do need to figure out how to not have it anti-alias when it resizes. Also don't pay attention to the rounded rectangles in the corners that would turn white).
+It was also time-consuming to wait for the perlin noise to draw or not: I'd be waiting a few seconds with no noise at all, so then I'd go all the way in to a parameter's node to turn down the threshold I was using for the noise and then way too many points would get cleared out. I think basically I found why I would want to hook it up to a MIDI Controller!
+
+After the grid, I wondered if I could make more interesting tears. I tried rotating and resizing the grid with noise so it wouldn't always draw the same rectangles. I also realized since I had set up feedback, the tears got even more trippy looking and would streak along the image. I also tried applying a Displace TOP with noise, which did give me some very complicated structures (but still structures, not entirely noise!)
+
+
+I don't think I've mentioned how I'm trying to use Base containers more to hide and reuse parts of my work! The "Cream Cheese" probabilistic model is living in one. But one thing with my work in TouchDesigner is tht I keep realizing my solution to funny problems is to go into what I thought was the building blocks, and injecting new code. One of the biggest lessons I've learned in software engineering is "you probably don't know the right abstraction yet," and this feels like it's applying to an extreme in my TouchDesigner work.
+
+
+
+## Day 24 (2022-07-30)
+
+After doing the regeneration for Day 23, I was wondering if I could make it even creepier and fill in shadows in real images. 
+
+This was my first time working with real images, and I thought it would be quick (threshold to choose the dark spots of an already dark image, use edges of the threshold as the seed for the Cream Cheese model, then mask with the threshold again so it would only grow in the dark spots.)
+
+But the first results were pretty weird. The first problem was choosing a Cream Cheese configuration that drew too many light spots. I needed one that really was mostly black and more subtle (and so creepier). The second is the reoccurring lesson that "colors are way more complicated than color schemes" that I keep running into.For example! My image was dark trees in front of an overcast night sky illuminated a kind of yellow by light pollution. I thought blue could look okay with the yellow, but it just looked off. I think it was because the overcast night was a gradient too.
+What I found an easy trick was is to apply a similar color scheme to the underlying image using the Lookup TOP. So I suppose I learned an quick cheat for an okay-looking color combinations is to make there be just one color.
+
+
+
+I needed to pick a pattern that mostly drew black, or else it stood out a little too much. 
+
+I also ended up putting the image through a Lookup TOP so that the 
+
+
+Also, I did a lot of this project from coffeeshops around the LiveCode.nyc workshops. One was [Hydra](http://hydra.ojack.xyz) by [emptyflash](https://emptyfla.sh/portfolio)! What I realized was that a lot of the tricks I'm learning in TouchDesigner now (feedback! multiply images together!) are a basis in Hydra, so I have a feeling that dexterity in one will help with the other. 
+Another was [shaders by Char Stiles](http://charstiles.com/shader/). I've been using shaders in one or two ways (mostly the feedback loop for generative things), and it's cool to see how they can also be used to draw trippier shapes for performing. The website for Char's workshop is also really good, and I added it to my [resources](resources.md) page. My brain is getting a little too full of visual things, so I skipped the audio side of their workshops this time around, but I'm excited to check them out in the future!
+
+
+
 
