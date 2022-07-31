@@ -4,6 +4,8 @@ Code snippets and notes from my visual projects. More raw than [my blog](http://
 
 ## #7WeeksofMaking
 
+*Right now you can see it on [instagram](https://www.instagram.com/stories/highlights/17992774921496159/), but I'll copy it to a blog soon!*
+
 #7weeksofmaking is a challenge to make something every day for 7 weeks or 49 days. It's being done with other really cool folks from ITP. I'm participating in a group from ITP Camp, and we all post with the folks from the ITP program.
 
 I've been eager to learn TouchDesigner, but because it requires a lot of time alone on a computer, I was waiting until ITP camp was over. So the timing worked out perfectly!
