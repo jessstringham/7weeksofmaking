@@ -8,10 +8,12 @@ My personal reference file where I can drop things I forget a lot.
    - **reorder**: assign input channels to different image channels (like RGBA)
    - **lookup**: apply a colorscheme! like a ramp or noise pixels.
    - **GLSL**: oh you know it's gonna be wild
+   - **Analyze**: can compute things like "count number of pixels that aren't transparent"!
 
  - CHOP
    - **pattern**: gives you a little pattern, like sine and stuff
    - **merge** and **rename** can be used to make the constant of your dreams.
+   - **Info** get information about an image
 
 
 ## GLSL
@@ -50,4 +52,28 @@ change `[0]` to others to access multiple inputs
 
 by default, 0.5 means don't move, 0.0 and 1.0 will move (the size of the canvas?). Red moves horizontally, Blue vertically (TODO: double check i have that right.)
 Can create two grayscale images that describe how to move things vertically and horizontally and then use Reorder to create the image to displace by.
+
+
+### SOPs
+
+SOPs are on the CPU and can affect realtime.
+
+ - w :: shows wireframe
+ - p :: shows little dialog, so you can show normals and such
+
+SOP to DAT will give you all the info you need.
+
+One trick is to move calculations out into TOPs. Wild.
+
+Normals figure out which direction the face is facing, and help the textures and lighting look better. Someday I'll understand how to do funny stuff with this.
+
+
+### channel selection stuff
+
+ - `t[xyz]` :: `tx ty tz`
+
+
+### etc
+
+ - Info CHOP is useful for getting image resolutions
 
