@@ -8,7 +8,7 @@
  * [The Book of Shaders](https://thebookofshaders.com/00/): Really nice introduction to shaders
  * [GPU Gems](https://developer.nvidia.com/gpugems/gpugems/contributors): A lot more in-depth about making graphics on GPUs.
  * [Char Stile's workshop](http://charstiles.com/shader/)
-
+ * [Inigo Quilez's cheatsheet for 3D objects](https://iquilezles.org/articles/distfunctions/)
 
 Wikipedia rabbit holes
 
