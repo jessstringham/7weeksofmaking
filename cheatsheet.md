@@ -23,12 +23,15 @@ output is a vec4 of rgba.
 
 `vec4(vec3(r), 1.0)`
 
+you probably want 32-bit float.
+
 
 pixel positions
 
 | command | what do |
 |-|-|
 | `vUV.st` | position of pixel |
+| `vec2 pixelLoc = vUV.st * uTD2DInfos[0].res.ba - vec2(0.5, 0.5);` | make positions like actual pixels |
 | `vUV.st + vec2(x, y) * uTD2DInfos[0].res.xy;` | position of pixel that is moved by x and y pixels |
 
 
@@ -71,7 +74,7 @@ Normals figure out which direction the face is facing, and help the textures and
 ### channel selection stuff
 
  - `t[xyz]` :: `tx ty tz`
-
+	
 
 ### etc
 
