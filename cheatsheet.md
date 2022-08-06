@@ -27,6 +27,13 @@ right click on parameters, like resolution, and copy. then you can paste in othe
  - [Turning a Geometry into DAT and back!](https://www.youtube.com/watch?v=5DRlPjdirHg)
  - [This one about UV Unwrapping](https://www.youtube.com/watch?v=HPun50ej4W8&t=538s) is useful for Geometry GLSLs.
 
+
+## TScript
+
+| command | what do |
+|-|-|
+| `op('constant1').par.alpha = float(op('pixelColor')[0,0])` | read in from a DAT table and set the alpha of a constant TOP |
+
 ## GLSL
 
 
