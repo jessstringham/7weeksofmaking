@@ -2,6 +2,12 @@
 
 My personal reference file where I can drop things I forget a lot.
 
+select a top and press Alt+N to create a null OP!!
+
+in the menu, hold down shift to keep the window open (TODO I think this one tries to connect nodes, not sure how to prevent that)
+
+right click on parameters, like resolution, and copy. then you can paste in others to reuse the parameters. (though then all of yours will be connected to that node)
+
 
  - TOP
    - **fit**: resize image
