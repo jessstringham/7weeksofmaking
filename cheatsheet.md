@@ -60,7 +60,7 @@ change `[0]` to others to access multiple inputs
 
 | command | what do |
 |-|-|
-| `texture(sTD2DInputs[0], uv)` | get pixel of input image |
+| `texture(sTD2DInputs[0], vUV.st)` | get pixel of input image |
 | `uTD2DInfos[0].res` | resolution of input img |
 
 
